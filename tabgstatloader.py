@@ -20,8 +20,9 @@ for page in range(current_page, max_page):
     for row in soup.table.find_all('tr'):
         td = soup.find('td', string=username)
         if td:
-            rank = td.previous_sibling.string.strip()
-            kills = td.next_sibling.string.strip()
+            data = td.parent.find_all('td')
+            rank = data[0].string.strip()
+            kills = data[2].string.strip()
             with open('totalkills.txt', 'w') as f:
                 f.write(kills)
             with open('rank.txt', 'w') as f:
