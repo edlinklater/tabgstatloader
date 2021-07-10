@@ -15,7 +15,7 @@ else:
         f.write(username)
 
 for page in range(current_page, max_page):
-    r = requests.get('http://webtabs.tk:1337/{}'.format(page))
+    r = requests.get('http://jlot.tk:1337/{}'.format(page))
     soup = BeautifulSoup(r.text, 'html.parser')
     for row in soup.table.find_all('tr'):
         td = soup.find('td', string=username)
